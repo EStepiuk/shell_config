@@ -1,0 +1,1 @@
+alias re-zshrc='source ~/.zshrc'
