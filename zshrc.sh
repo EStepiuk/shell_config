@@ -34,3 +34,6 @@ source $ZSH_P_CONFIGS/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Keybindings
 source $ZSH_P_CONFIGS/key-bindings.zsh
+
+# Configure proper less for bat
+export BAT_PAGER="less -R"
