@@ -1,8 +1,8 @@
-My preferred configurations for shells.
+# My shell configs
 
 For now only `zsh` is supported, **IMHO:** it's the best one 😁
 
-## Install
+### Installation
 
 Clone repo:
 
