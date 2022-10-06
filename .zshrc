@@ -8,7 +8,7 @@ export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-eval "$(brew shellenv)"
+eval $(brew shellenv)
 
 # Ruby
 export PATH="$(gem environment gemdir)/bin:$PATH"
@@ -36,10 +36,10 @@ export BAT_PAGER="less -R"
 export PATH="$PATH:$HOME/StudioProjects/personal/mytime/bin"
 
 # Work
-source "$SHELL_CONFIG/.env.work"
+source $SHELL_CONFIG/.env.work
 
 # Aliases
-source "$SHELL_CONFIG/aliases.sh"
+source $SHELL_CONFIG/aliases.sh
 
 ##################################### Begin: Oh my zsh #############################################
 
@@ -50,7 +50,7 @@ source "$SHELL_CONFIG/aliases.sh"
 # Nice themes:
 # * trapd00r
 # * robbyrussell
-ZSH_THEME="random"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -114,7 +114,7 @@ ZSH_THEME="random"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-source "$ZSH/oh-my-zsh.sh"
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
