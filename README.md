@@ -12,9 +12,8 @@ git clone git@github.com:EStepiuk/shell_config.git ~/.shell_config
 
 Install dependencies:
 
-* with `Brewfile` (TODO: how to)
-* `.oh-my-zsh` (TODO: add as submodule?)
-* TODO
+* `Brewfile` dependencies
+* `.oh-my-zsh`
 
 Setup `.zshrc`:
 
