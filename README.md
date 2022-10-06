@@ -21,3 +21,6 @@ Setup `.zshrc`:
 ```shell
 echo 'export SHELL_CONFIG="$HOME/.shell_config"\nsource "$SHELL_CONFIG/.zshrc"' > ~/.zshrc ; source ~/.zshrc
 ```
+
+### Misc
+Add `.env.work` with work related env. vars
