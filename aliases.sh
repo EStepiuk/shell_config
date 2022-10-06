@@ -1,11 +1,11 @@
 alias re-zshrc='source ~/.zshrc'
 
-flutter_build_runner() {
-  flutter pub run build_runner $1 --delete-conflicting-outputs
+flutter-build-runner() {
+  flutter pub run build_runner "$1" --delete-conflicting-outputs
 }
 
-alias flutter_build_runner_build='flutter_build_runner build'
-alias flutter_build_runner_watch='flutter_build_runner watch'
+alias flutter-build-runner-build='flutter-build-runner build'
+alias flutter-build-runner-watch='flutter-build-runner watch'
 
 alias cat='bat'
 
@@ -16,3 +16,7 @@ adb-wifi() {
   adb tcpip 5555
   adb connect $1
 }
+
+# Fixes HDD issue with fsck.
+# You need to already fix this HDD 😅
+alias fix-hdd='sudo pkill -9 fsck'
