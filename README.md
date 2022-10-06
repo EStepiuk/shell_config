@@ -7,7 +7,7 @@ For now only `zsh` is supported, **IMHO:** it's the best one 😁
 Clone repo:
 
 ```shell
-git clone git@github.com:EStepiuk/shell_config.git ~/shell_config
+git clone git@github.com:EStepiuk/shell_config.git ~/.shell_config
 ```
 
 Install dependencies:
@@ -19,5 +19,5 @@ Install dependencies:
 Setup `.zshrc`:
 
 ```shell
-echo 'export SHELL_CONFIG="$HOME/shell_config"\nsource "$SHELL_CONFIG/.zshrc"' > ~/.zshrc ; source ~/.zshrc
+echo 'export SHELL_CONFIG="$HOME/.shell_config"\nsource "$SHELL_CONFIG/.zshrc"' > ~/.zshrc ; source ~/.zshrc
 ```
