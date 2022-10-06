@@ -1,14 +1,56 @@
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
+# Oh my zsh
 export ZSH="$HOME/.oh-my-zsh"
+
+# Base
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
+
+# Brew
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+eval "$(brew shellenv)"
+
+# Ruby
+export PATH="$(gem environment gemdir)/bin:$PATH"
+export PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
+
+# Flutter / Dart
+export PATH="$PATH:$HOME/flutter/bin"
+export PATH="$PATH:$HOME/Library/flutter/bin"
+export PATH="$PATH:$HOME/.pub-cache/bin"
+export PATH="$PATH:$HOME/.dcli/bin"
+export FLUTTER_ROOT="$HOME/flutter"
+
+# Android tools
+export PATH="$PATH:$HOME/Library/Android/sdk/emulator"
+export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
+
+# Hyper
+export PATH="$PATH:/Applications/Hyper.app/Contents/Resources/bin"
+
+# Bat
+# Configure proper less for bat
+export BAT_PAGER="less -R"
+
+# Personal projects
+export PATH="$PATH:$HOME/StudioProjects/personal/mytime/bin"
+
+# Work
+source "$SHELL_CONFIG/.env.work"
+
+# Aliases
+source "$SHELL_CONFIG/aliases.sh"
+
+##################################### Begin: Oh my zsh #############################################
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes.
+# Nice themes:
+# * trapd00r
+# * robbyrussell
+ZSH_THEME="random"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -72,7 +114,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 # User configuration
 
@@ -99,16 +141,21 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+###################################### End: Oh my zsh ##############################################
 
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/sbin:$PATH"
-export PATH="$PATH:/Users/yevhen.stepiuk/Library/flutter/bin"
-export PATH="$PATH:/Users/yevhen.stepiuk/Library/Android/sdk/emulator"
-export PATH="$PATH:/Users/yevhen.stepiuk/Library/Android/sdk/platform-tools"
-export PATH="$PATH:/Applications/Hyper.app/Contents/Resources/bin"
-export PATH="$PATH:/Users/yevhen.stepiuk/.gem/ruby/2.6.0/bin"
-export PATH="$PATH:/Users/yevhen.stepiuk/StudioProjects/personal/mytime/bin"
-export PATH="$PATH":"$HOME/.pub-cache/bin"
-export PATH="$PATH:/Users/yevhen.stepiuk/.dcli/bin"
+# Init starship prompt.
+# TODO:
+# Fix starship issue with oh-my-zsh theme. 
+eval $(starship init zsh)
 
-source "$HOME"/shell_config/zshrc.sh
+# Syntax highlight
+source $SHELL_CONFIG/zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+# Completion
+source $SHELL_CONFIG/zsh/completion.zsh
+
+# Autosuggestions
+source $SHELL_CONFIG/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Keybindings
+source $SHELL_CONFIG/zsh/key-bindings.zsh
