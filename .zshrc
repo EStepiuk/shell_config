@@ -5,6 +5,7 @@ export ZSH="$SHELL_CONFIG/zsh/oh-my-zsh"
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 # Brew
+export HOMEBREW_BREWFILE="$SHELL_CONFIG/Brewfile"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
