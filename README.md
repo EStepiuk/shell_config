@@ -7,7 +7,7 @@ For now only `zsh` is supported, **IMHO:** it's the best one 😁
 Clone repo:
 
 ```shell
-git clone git@github.com:EStepiuk/shell_config.git ~/.shell_config
+git clone --recurse-submodules git@github.com:EStepiuk/shell_config.git ~/.shell_config
 ```
 
 Install dependencies:
