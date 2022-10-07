@@ -1,5 +1,5 @@
 # Oh my zsh
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$SHELL_CONFIG/zsh/oh-my-zsh"
 
 # Base
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
