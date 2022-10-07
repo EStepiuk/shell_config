@@ -20,3 +20,5 @@ adb-wifi() {
 # Fixes HDD issue with fsck.
 # You need to already fix this HDD 😅
 alias fix-hdd='sudo pkill -9 fsck'
+
+alias brew-dump='brew bundle dump --force --file="$SHELL_CONFIG/Brewfile"'
