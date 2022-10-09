@@ -39,6 +39,9 @@ export PATH="$PATH:$HOME/StudioProjects/personal/mytime/bin"
 # Work
 source $SHELL_CONFIG/.env.work
 
+# Ansi
+source $SHELL_CONFIG/ansi.sh
+
 # Aliases
 source $SHELL_CONFIG/aliases.sh
 
