@@ -4,6 +4,7 @@ alias re-zshrc='source ~/.zshrc'
 # Default tools replacement
 alias cat='bat'
 alias vim='nvim'
+alias top='btop'
 
 # Env
 alias brew-dump='brew bundle dump --force --file="$SHELL_CONFIG/Brewfile"'
