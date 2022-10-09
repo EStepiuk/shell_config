@@ -5,12 +5,10 @@ DEFAULT_SHELL_CONFIG_PATH="$HOME/.shell_config"
 
 # Install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Install git
-brew install git
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Read path to desired shell_config dir (defaults to ~/.shell_config)
-read -r "Shell config installation path [$DEFAULT_SHELL_CONFIG_PATH]: " shell_config_path
+read -r -p "Shell config installation path [$DEFAULT_SHELL_CONFIG_PATH]: " shell_config_path
 shell_config_path=${shell_config_path:-"$DEFAULT_SHELL_CONFIG_PATH"}
 
 # Clone shell_config
@@ -27,14 +25,24 @@ echo 'source "$SHELL_CONFIG/.zshrc"' >> ~/.zshrc
 # Change default Shell to zsh
 # Normally all new macs have zsh pre-installed
 # TODO: use homebrew zsh instead? (this will need 'which zsh | sudo tee -a /etc/shells')
-chsh -s /bin/zsh
+if [ ! "$SHELL" = "/bin/zsh" ]; then
+  chsh -s /bin/zsh
+  need_re_login=true
+fi 
 
-# Finish message
 echo 'All done :D'
-echo 'Re-sign in to apply shell changes.'
 
-# Re-login
-read -r "Proceed with re-sign in? (y/n): " yn
+# Re-login not needed, finish
+if [ ! $need_re_login = true ]; then
+  source_command='source ~/.zshrc'
+  echo "Run '$source_command' to apply shell changes. (Command + V)"
+  printf "$source_command" | pbcopy
+  exit 0
+fi
+
+# Re-login prompt
+echo "Re-sign in to apply shell changes."
+read -r -p "Proceed with re-sign in? (y/n): " yn
 case $yn in
 [yY])
   echo "Signing out..."
