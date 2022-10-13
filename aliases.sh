@@ -71,7 +71,7 @@ quick-note() {
   if [ -z "$commit_message" ]; then
     git commit
   else
-    git commit -m "Add '$note'"
+    git commit -m "$commit_message"
   fi
   
   # shellcheck disable=SC2164
