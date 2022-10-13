@@ -3,6 +3,7 @@ export ZSH="$SHELL_CONFIG/zsh/oh-my-zsh"
 
 # Base
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export EDITOR="micro"
 
 # Brew
 export HOMEBREW_BREWFILE="$SHELL_CONFIG/Brewfile"
