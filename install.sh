@@ -22,6 +22,9 @@ echo "export SHELL_CONFIG=$shell_config_path" >> ~/.zshrc
 # shellcheck disable=SC2016
 echo 'source "$SHELL_CONFIG/.zshrc"' >> ~/.zshrc
 
+# Symlink ~/.config -> .shell_config/.config
+ln -s "$shell_config_path/.config" "$HOME/.config"
+
 # Change default Shell to zsh
 # Normally all new macs have zsh pre-installed
 # TODO: use homebrew zsh instead? (this will need 'which zsh | sudo tee -a /etc/shells')
