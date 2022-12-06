@@ -13,6 +13,10 @@ alias brew-dump='brew bundle dump --force --file="$SHELL_CONFIG/Brewfile"'
 alias batdiff='git diff --name-only --relative --diff-filter=d | xargs bat --diff'
 alias submodules='git submodule update --init --recursive'
 
+# Java
+# Enable Android Studio JDK
+alias asjdk='export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/Contents/Home"'
+
 # Misc
 # Fixes HDD issue with fsck.
 # You need to already fix this HDD 😅
