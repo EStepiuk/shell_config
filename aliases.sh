@@ -31,8 +31,9 @@ alias flutter-build-runner-watch='flutter-build-runner watch'
 
 # Android
 adb-wifi() {
-  adb tcpip 5555
-  adb connect "$1"
+  ip=$(adb -d shell ifconfig wlan0 | grep "inet " | awk -F'[: ]+' '{ print $4 }')
+  adb -d tcpip 5555
+  adb -d connect "$ip"
 }
 
 # Notes
