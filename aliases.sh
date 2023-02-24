@@ -12,10 +12,16 @@ alias brew-dump='brew bundle dump --force --file="$SHELL_CONFIG/Brewfile"'
 # Git
 alias batdiff='git diff --name-only --relative --diff-filter=d | xargs bat --diff'
 alias submodules='git submodule update --init --recursive'
+gitsu() {
+  git "$@" && gsu
+}
 
 # Java
 # Enable Android Studio JDK
-alias asjdk='export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/Contents/Home"'
+alias asjdk='export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"'
+
+# Gradle
+alias gradle-cache-rm='rm -rf ~/.gradle/caches/'
 
 # Misc
 # Fixes HDD issue with fsck.
@@ -36,49 +42,13 @@ adb-wifi() {
   adb -d connect "$ip"
 }
 
-# Notes
-# Usage: quick-note <flag / arguments>
-# Flags:
-# * -v - view notes
-# * -e - edit notes in editor
-# No flags: arguments string will be added to $HOME/quick_notes/quick_notes.txt
-quick-note() {
-  current_path=$(pwd)
-  quick_notes_path="$HOME/quick_notes"
-  quick_notes_file="$quick_notes_path/quick_notes.txt"
-
-  if [ "$1" = "-v" ]; then
-    cat "$quick_notes_file"
-    return 0
-  elif [ "$1" = "-e" ]; then
-    "${EDITOR:-nano}" "$quick_notes_file"
-  else
-    note="$*"
-    if [ -z "$note" ]; then
-      cecho "$Red" "No note provided"
-      return 1
-    fi
-    printf '%s\n\n' "$note" >>quick_notes.txt
-    commit_message="Add '$note'"
-  fi
-
-  cd "$quick_notes_path" || (
-    cecho "$Red" "No notes dir"
-    return 1
-  )
-
-  if [ ! -d .git ]; then
-    git init
-  fi
-
-  git add quick_notes.txt
-
-  if [ -z "$commit_message" ]; then
-    git commit
-  else
-    git commit -m "$commit_message"
-  fi
-  
-  # shellcheck disable=SC2164
-  cd "$current_path"
+# Development
+# Copies project with suffix and opens it in Android Studio.
+# Example: 'studio-cp MyProject hot-fix' - copies MyProject to MyProject-hot-fix and opens it. 
+studio-cp() {
+  result_dir_name="$1-$2"
+  cp -r "$1" "$result_dir_name" && studio "$result_dir_name"
 }
+
+# Quick notes
+source quick-note.sh
